@@ -69,44 +69,51 @@ Social disapproval can change how people behave in groups. However, the behavior
 
 \section{Introduction}\label{sec:intro}
 
-Cooperation is widely observed in biological and social systems, ranging from microbial communities to human societies~\cite{axelrod1981evolution,rand2013human}.
+Cooperation is common in nature and human society, and it is essential for the functioning of groups ranging from microbial communities to human organizations~\cite{axelrod1981evolution,rand2013human}.
 However, cooperative behaviors require individuals to bear a cost, while the resulting collective benefits can be exploited by others~\cite{sigmund2010calculus}.
 Understanding how cooperation can emerge and persist despite the advantage of selfish behaviors has therefore become a central topic in many disciplines~\cite{pennisi2005did}.
 
-Evolutionary game theory provides a framework for investigating this problem~\cite{smith1973logic,taylor1978evolutionary,nowak2006evolutionary}.
-Among various models, the public goods game (PGG) is widely used to describe social dilemmas in which individuals decide whether to contribute to a common pool~\cite{hauert2006evolutionary,szolnoki2016competition,zhu2024stochastic}.
-Spatial PGGs further include population structure and local interactions, which allow cooperators to form clusters and resist exploitation~\cite{nowak1992evolutionary,ohtsuki2006simple,szabo2007evolutionary,szolnoki2009impact,perc2013evolutionary,perc2017statistical,zhu2025multilayer}.
-On this basis, many mechanisms that support cooperation have been studied~\cite{perc2010coevolutionary}, including punishment~\cite{fehr2002altruistic,helbing2010punish,chen2014probabilistic,szolnoki2017antisocial,xie2024regulation}, reward~\cite{rand2009positive,szolnoki2010reward}, reputation~\cite{milinski2002helps,zhu2024synergy}, and environmental feedback~\cite{weitz2016oscillating,tilman2020evolutionary,wang2020eco,hu2025dynamic}.
+Evolutionary game theory is the standard framework for studying this problem~\cite{smith1973logic,taylor1978evolutionary,nowak2006evolutionary}.
+For interactions in groups, the public goods game (PGG) is the most commonly used model~\cite{hauert2006evolutionary,szolnoki2016competition,zhu2024stochastic}.
+Each participant decides whether to contribute to a common pool, and the pool is then multiplied and shared equally among all participants.
+Since the return is shared regardless of the contributions, each individual earns more by not contributing.
+When individuals are placed on a lattice or a network and interact only with their neighbors, cooperators can form clusters and resist exploitation~\cite{nowak1992evolutionary,ohtsuki2006simple,szabo2007evolutionary,szolnoki2009impact,perc2013evolutionary,perc2017statistical,zhu2025multilayer}.
+Spatial structure alone, however, sustains cooperation only when the return of the public good is high enough.
+Additional mechanisms have therefore been introduced~\cite{perc2010coevolutionary}, such as punishment~\cite{fehr2002altruistic,helbing2010punish,chen2014probabilistic,szolnoki2017antisocial,xie2024regulation}, reward~\cite{rand2009positive,szolnoki2010reward}, reputation~\cite{milinski2002helps,zhu2024synergy}, and feedback between strategies and the environment~\cite{weitz2016oscillating,tilman2020evolutionary,wang2020eco,hu2025dynamic}.
+These mechanisms change the payoffs of cooperators and defectors, and thereby the conditions under which cooperation can spread.
 
-Peer pressure is another mechanism that influences cooperation and other collective behaviors~\cite{szolnoki2015conformity,xu2026synergistic}.
+Besides such incentives, the attitudes of other group members also affect individual behavior.
 Individuals whose behavior differs from that of the people around them may face disapproval or exclusion, and they tend to adjust their behavior accordingly~\cite{asch1952social,cialdini1990focus}.
-In evolutionary games, peer pressure has been modeled in two ways.
-In the first, each individual is penalized in proportion to the number of its neighbors that hold the opposite strategy, whether it cooperates or defects~\cite{yang2015peer,hu2021peer,gao2023impact,ma2025evolution}.
-In the second, cooperation is regarded as the social norm, and only defectors are penalized, in proportion to the number of cooperators in their group~\cite{deng2018peer}.
+This effect is known as peer pressure.
+In evolutionary games, it is usually modeled as a reduction of payoff, in two ways.
+In the first, two neighbors with different strategies penalize each other, so that each individual loses payoff in proportion to the number of its neighbors with the opposite strategy, whether it cooperates or defects~\cite{yang2015peer}.
+This rule has been extended to interdependent networks~\cite{hu2021peer} and to individuals with different or time-varying sensitivities to pressure~\cite{gao2023impact,ma2025evolution}.
+In the second, cooperation is regarded as the social norm, and only defectors lose payoff, in proportion to the number of cooperators in their group~\cite{deng2018peer}.
 Both rules can promote cooperation, and under the first rule a moderate pressure intensity is the most effective~\cite{yang2015peer,gao2023impact}.
+Related studies have treated conformity as an updating rule, in which individuals tend to follow the local majority~\cite{szolnoki2015conformity,xu2026synergistic}.
 
 In both rules, the behavior that receives pressure is specified in advance and is the same in every group.
-In reality, however, what a group expects of its members is largely determined by what most of them do.
-In a team where most members work hard, a member who contributes little is criticized.
-In a team where most members contribute little, a member who works hard may instead be resented, because this effort raises what is expected of the others.
-Public goods experiments have indeed found that punishment is directed at high contributors as well as at free riders~\cite{herrmann2008antisocial}.
-The prevailing behavior of a group thus acts as a local environment, which determines the behavior that receives pressure and is in turn changed by the actions of the group members.
-Neither rule describes this situation.
-Under the first rule, both behaviors are penalized in every mixed group, including the behavior of the majority.
+Under the first rule, both behaviors are penalized wherever they meet, including the behavior of the local majority.
 Under the second rule, cooperators are never penalized, even when almost all members of their group defect.
+In reality, however, people judge a behavior largely by how common it is around them.
+They tend to do what most others in the same setting do~\cite{cialdini1990focus,keizer2008spreading}, and in public goods experiments most participants contribute more when the other group members contribute more~\cite{fischbacher2001conditionally}.
+The behavior adopted by most members of a group thus becomes what is expected in that group, and those who deviate from it attract disapproval.
+In a team where most members work hard, a member who contributes little is criticized.
+Conversely, experiments have shown that group members who contribute much more than the others are also disliked and punished~\cite{herrmann2008antisocial,parks2010desire}.
+The prevailing behavior of a group therefore acts as a local environment, which determines the behavior that receives pressure and is in turn changed by the actions of the group members.
 
-In addition, strategies in these models spread by imitation~\cite{szabo2007evolutionary,traulsen2010human}, and each individual uses one strategy in all its interactions.
-When the pressure depends on the group, however, an individual that belongs to several groups may be expected to behave differently in each of them.
-Reinforcement learning describes individuals who choose actions according to their current state and adjust these choices according to the rewards received~\cite{young2009learning,sutton2018reinforcement,xie2026reinforcement,zheng2026brief}.
+Studying such pressure also requires a description of how individuals respond to their environment.
+Traditional evolutionary game models assume that individuals imitate more successful neighbors~\cite{szabo2007evolutionary,traulsen2010human}.
+In contrast, reinforcement learning describes individuals who adjust their behavior according to the rewards of their own past actions~\cite{young2009learning,sutton2018reinforcement}, and it has been increasingly used in evolutionary games~\cite{xie2026reinforcement,zheng2026brief}.
 In particular, Q-learning~\cite{watkins1992qlearning} has been applied to PGGs and other social dilemmas~\cite{zheng2024evolution,shi2024model,wang2025spatial,mintz2025evolutionary,li2025cooperation}, also in combination with punishment, reward, and reputation~\cite{zhao2024emergence,wang2023synergistic,ren2024interaction,shen2024adaptive,li2026reputation}.
-In most of these studies, however, the state of an individual is its own previous action~\cite{wang2022levy,fan2022incorporating,du2026shaping}, and the behavior of its group is not included.
-Recent studies have shown that information about the environment affects cooperation~\cite{kleshnina2023effect,lv2025reinforcement,li2025environmental}, but it has not been combined with peer pressure that depends on this environment.
+In most of these studies, the state of an individual is its own previous action~\cite{wang2022levy,fan2022incorporating,du2026shaping}.
+Recent studies have shown that information about the environment also affects cooperation~\cite{kleshnina2023effect,lv2025reinforcement,li2025environmental}.
+When peer pressure depends on the group environment, it is natural to include this environment in the state.
 
 In this work, we propose an environment-dependent peer pressure mechanism in a spatial PGG with Q-learning.
 A group is a cooperative environment if its number of cooperators reaches a threshold, and a defective environment otherwise.
 Defectors receive pressure in cooperative environments, and cooperators receive pressure in defective environments.
 The state of each individual consists of its own action and the environment of its current group, so that it can learn different actions for different environments.
-The rule that penalizes only defectors is recovered at the lowest threshold, and the rule that penalizes both behaviors is used for comparison.
 We find that weak pressure allows cooperation to emerge at lower synergy factors, whereas strong pressure yields higher cooperation levels at higher synergy factors, and that cooperation collapses once the pressure exceeds an optimal intensity.
 Spatial patterns and learning dynamics show that this collapse occurs because strong pressure removes cooperative environments before individuals learn to cooperate in them.
 The threshold further changes the response of cooperation to pressure.
