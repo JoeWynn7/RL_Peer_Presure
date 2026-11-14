@@ -87,21 +87,21 @@ In evolutionary games, peer pressure is usually modeled as a reduction of payoff
 In the first, two neighbors with different strategies penalize each other, so that each individual loses payoff in proportion to the number of its neighbors with the opposite strategy, whether it cooperates or defects~\cite{yang2015peer}.
 This rule has been extended to interdependent networks~\cite{hu2021peer} and to individuals with different or time-varying sensitivities to pressure~\cite{gao2023impact,ma2025evolution}.
 In the second, cooperation is regarded as the social norm, and only defectors lose payoff, in proportion to the number of cooperators in their group~\cite{deng2018peer}.
-Both rules can promote cooperation, and under the first rule a moderate pressure intensity is the most effective~\cite{yang2015peer,gao2023impact}.
+Both rules can promote cooperation~\cite{yang2015peer,gao2023impact,deng2018peer}.
+In both rules, however, the behavior that receives pressure is specified in advance and is the same in every group.
+Under the first rule, both behaviors are penalized wherever they meet, and only the amount of the penalty depends on the neighbors.
+Under the second rule, cooperators are never penalized, whatever the composition of their group.
 
-In both rules, the behavior that receives pressure is specified in advance and is the same in every group.
-Under the first rule, both behaviors are penalized wherever they meet, including the behavior of the local majority.
-Under the second rule, cooperators are never penalized, even when almost all members of their group defect.
-In reality, however, whether a behavior is approved of also depends on how common it is.
-People tend to do what most others around them do~\cite{cialdini1990focus,cialdini2004social}, and such conformity has also been studied in evolutionary games~\cite{szolnoki2015conformity,xu2026synergistic}.
-Moreover, a behavior is judged as more acceptable, and as less deserving of punishment, when it is common than when it is rare, whether it is altruistic or selfish~\cite{lindstrom2018common}.
-The behavior adopted by most members of a group can therefore become the standard of that group, and those who deviate from it attract disapproval.
-In a team where most members work hard, a member who contributes little is criticized.
+In reality, however, the same behavior can receive different social feedback in different groups.
+Whether a behavior is approved of depends on how widespread it is in the group concerned.
+People tend to follow the behavior that is common around them~\cite{cialdini1990focus,cialdini2004social,szolnoki2015conformity,xu2026synergistic}, and a behavior is judged as more acceptable, and as less deserving of punishment, when it is common than when it is rare, whether it is altruistic or selfish~\cite{lindstrom2018common}.
+In a team whose members generally work hard, a member who contributes little is criticized.
 The opposite case has been observed in public goods experiments.
 Participants punish not only free riders but also those who contribute more than the others, most often where norms of cooperation are weak~\cite{herrmann2008antisocial}.
-This punishment becomes stronger when the contributions of the other members are more alike, that is, when the typical behavior of the group is clearer~\cite{irwin2013normative}.
-Members who give much more than the rest are disliked because they are seen as setting an undesirable standard or as breaking the rule of the group~\cite{parks2010desire}.
-The prevailing behavior of a group thus acts as a local environment, which determines the behavior that receives pressure and is in turn changed by the actions of the group members.
+This punishment becomes stronger when the contributions of the other members are more alike~\cite{irwin2013normative}, and members who give much more than the rest are disliked because they are seen as setting an undesirable standard~\cite{parks2010desire}.
+The level of cooperation in a group thus acts as a local environment that determines which behavior receives pressure.
+This environment is not fixed. It changes with the actions of the group members, as in games with environmental feedback~\cite{weitz2016oscillating,tilman2020evolutionary,wang2020eco,hu2025dynamic}, except that here each group has its own environment.
+Moreover, the level of cooperation at which the expectations of a group change need not be one half. Experiments on social conventions have shown that a group can adopt a new convention once a committed minority reaches a critical size~\cite{centola2018experimental}.
 
 Studying such pressure also requires a description of how individuals respond to their environment.
 Traditional evolutionary game models assume that individuals imitate more successful neighbors~\cite{szabo2007evolutionary,traulsen2010human}.
