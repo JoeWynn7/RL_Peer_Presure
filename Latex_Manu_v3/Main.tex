@@ -75,32 +75,33 @@ Understanding how cooperation can emerge and persist despite the advantage of se
 
 Evolutionary game theory is the standard framework for studying this problem~\cite{smith1973logic,taylor1978evolutionary,nowak2006evolutionary}.
 For interactions in groups, the public goods game (PGG) is the most commonly used model~\cite{hauert2006evolutionary,szolnoki2016competition,zhu2024stochastic}.
-Each participant decides whether to contribute to a common pool, and the pool is then multiplied and shared equally among all participants.
-Since the return is shared regardless of the contributions, each individual earns more by not contributing.
-When individuals are placed on a lattice or a network and interact only with their neighbors, cooperators can form clusters and resist exploitation~\cite{nowak1992evolutionary,ohtsuki2006simple,szabo2007evolutionary,szolnoki2009impact,perc2013evolutionary,perc2017statistical,zhu2025multilayer}.
+In spatial PGGs, individuals interact only with their neighbors, so that cooperators can form clusters and resist exploitation~\cite{nowak1992evolutionary,ohtsuki2006simple,szabo2007evolutionary,szolnoki2009impact,perc2013evolutionary,perc2017statistical,zhu2025multilayer}.
 Spatial structure alone, however, sustains cooperation only when the return of the public good is high enough.
-Additional mechanisms have therefore been introduced~\cite{perc2010coevolutionary}, such as punishment~\cite{fehr2002altruistic,helbing2010punish,chen2014probabilistic,szolnoki2017antisocial,xie2024regulation}, reward~\cite{rand2009positive,szolnoki2010reward}, reputation~\cite{milinski2002helps,zhu2024synergy}, and feedback between strategies and the environment~\cite{weitz2016oscillating,tilman2020evolutionary,wang2020eco,hu2025dynamic}.
+Additional mechanisms have therefore been introduced~\cite{perc2010coevolutionary}, such as punishment~\cite{fehr2002altruistic,helbing2010punish,chen2014probabilistic,szolnoki2017antisocial,xie2024regulation}, reward~\cite{rand2009positive,szolnoki2010reward}, reputation~\cite{milinski2002helps,zhu2024synergy}, and environmental feedback~\cite{weitz2016oscillating,tilman2020evolutionary,wang2020eco,hu2025dynamic}.
 These mechanisms change the payoffs of cooperators and defectors, and thereby the conditions under which cooperation can spread.
 
 Besides such incentives, the attitudes of other group members also affect individual behavior.
-Individuals whose behavior differs from that of the people around them may face disapproval or exclusion, and they tend to adjust their behavior accordingly~\cite{asch1952social,cialdini1990focus}.
-This effect is known as peer pressure.
-In evolutionary games, it is usually modeled as a reduction of payoff, in two ways.
+Peer pressure is the influence that a group exerts on its members to behave like the others.
+Individuals whose behavior differs from that of the people around them may face, or expect to face, disapproval or exclusion, and they tend to adjust their behavior accordingly~\cite{asch1952social,cialdini2004social}.
+In evolutionary games, peer pressure is usually modeled as a reduction of payoff, in two ways.
 In the first, two neighbors with different strategies penalize each other, so that each individual loses payoff in proportion to the number of its neighbors with the opposite strategy, whether it cooperates or defects~\cite{yang2015peer}.
 This rule has been extended to interdependent networks~\cite{hu2021peer} and to individuals with different or time-varying sensitivities to pressure~\cite{gao2023impact,ma2025evolution}.
 In the second, cooperation is regarded as the social norm, and only defectors lose payoff, in proportion to the number of cooperators in their group~\cite{deng2018peer}.
 Both rules can promote cooperation, and under the first rule a moderate pressure intensity is the most effective~\cite{yang2015peer,gao2023impact}.
-Related studies have treated conformity as an updating rule, in which individuals tend to follow the local majority~\cite{szolnoki2015conformity,xu2026synergistic}.
 
 In both rules, the behavior that receives pressure is specified in advance and is the same in every group.
 Under the first rule, both behaviors are penalized wherever they meet, including the behavior of the local majority.
 Under the second rule, cooperators are never penalized, even when almost all members of their group defect.
-In reality, however, people judge a behavior largely by how common it is around them.
-They tend to do what most others in the same setting do~\cite{cialdini1990focus,keizer2008spreading}, and in public goods experiments most participants contribute more when the other group members contribute more~\cite{fischbacher2001conditionally}.
-The behavior adopted by most members of a group thus becomes what is expected in that group, and those who deviate from it attract disapproval.
+In reality, however, whether a behavior is approved of also depends on how common it is.
+People tend to do what most others around them do~\cite{cialdini1990focus,cialdini2004social}, and such conformity has also been studied in evolutionary games~\cite{szolnoki2015conformity,xu2026synergistic}.
+Moreover, a behavior is judged as more acceptable, and as less deserving of punishment, when it is common than when it is rare, whether it is altruistic or selfish~\cite{lindstrom2018common}.
+The behavior adopted by most members of a group can therefore become the standard of that group, and those who deviate from it attract disapproval.
 In a team where most members work hard, a member who contributes little is criticized.
-Conversely, experiments have shown that group members who contribute much more than the others are also disliked and punished~\cite{herrmann2008antisocial,parks2010desire}.
-The prevailing behavior of a group therefore acts as a local environment, which determines the behavior that receives pressure and is in turn changed by the actions of the group members.
+The opposite case has been observed in public goods experiments.
+Participants punish not only free riders but also those who contribute more than the others, most often where norms of cooperation are weak~\cite{herrmann2008antisocial}.
+This punishment becomes stronger when the contributions of the other members are more alike, that is, when the typical behavior of the group is clearer~\cite{irwin2013normative}.
+Members who give much more than the rest are disliked because they are seen as setting an undesirable standard or as breaking the rule of the group~\cite{parks2010desire}.
+The prevailing behavior of a group thus acts as a local environment, which determines the behavior that receives pressure and is in turn changed by the actions of the group members.
 
 Studying such pressure also requires a description of how individuals respond to their environment.
 Traditional evolutionary game models assume that individuals imitate more successful neighbors~\cite{szabo2007evolutionary,traulsen2010human}.
@@ -136,7 +137,7 @@ where $n_{\mathrm{C}}$ is the number of cooperators in the group, and $c_i=1$ if
 
 We assume that peer pressure depends on the local environment of each interaction group. The environment is determined separately for each group according to the environmental threshold $T$, which is an integer between $0$ and $g$. When the number of cooperators in the group satisfies $n_{\mathrm{C}}\geq T$, the group is in a cooperative environment, denoted by $\mathrm{G}$. Otherwise, it is in a defective environment, denoted by $\mathrm{B}$.
 
-The environment determines which behavior receives pressure. In a cooperative environment, defectors receive pressure from the cooperators in the group. In a defective environment, cooperators receive pressure from the defectors in the group. The peer pressure on individual $i$ is defined as
+The environment determines which behavior receives pressure. In a cooperative environment, defectors receive pressure from the cooperators in the group. In a defective environment, cooperators receive pressure from the defectors in the group. The latter case represents the disapproval of behavior that differs from what is typical in a group, as observed in public goods experiments~\cite{herrmann2008antisocial,irwin2013normative,parks2010desire}. It does not imply that defection is desirable for the group. The peer pressure on individual $i$ is defined as
 \begin{equation}
 P_i=
 \begin{cases}
@@ -152,7 +153,7 @@ R_i=\pi_i+P_i.
 \label{eq:effective}
 \end{equation}
 
-Figure~\ref{fig:Fig1} illustrates these definitions for two overlapping groups and $T=3$, which for $g=5$ corresponds to the simple-majority rule. Two limiting cases are worth noting. For $T\leq1$, a group can be defective only if it contains no cooperator, so cooperators are never pressured. The cases $T=0$ and $T=1$ then differ only in whether a fully defecting group is distinguished as a separate environment. For $T=g$, a group is cooperative only if it contains no defector, so defectors are never pressured.
+Figure~\ref{fig:Fig1} illustrates these definitions for two overlapping groups and $T=3$, which for $g=5$ corresponds to the simple-majority rule. Two limiting cases are worth noting. For $T\leq1$, a group can be defective only if it contains no cooperator, so cooperators are never pressured. This corresponds to the assumption that cooperation is the norm in every group~\cite{deng2018peer}. The cases $T=0$ and $T=1$ then differ only in whether a fully defecting group is distinguished as a separate environment. For $T=g$, a group is cooperative only if it contains no defector, so defectors are never pressured.
 
 \begin{figure}[t]
 \centering
