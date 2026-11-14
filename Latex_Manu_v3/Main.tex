@@ -25,6 +25,8 @@
 \usepackage[hidelinks]{hyperref}
 
 \renewcommand{\algorithmicrequire}{\textbf{Input:}}
+% Numbered citations in square brackets, placed before punctuation.
+\AtBeginDocument{\setcitestyle{numbers,square,comma}}
 \raggedbottom
 
 %% Placeholder for information that the authors still have to supply.
@@ -67,38 +69,38 @@ Social disapproval can change how people behave in groups. However, the behavior
 
 \section{Introduction}\label{sec:intro}
 
-Cooperation is widely observed in biological and social systems, ranging from microbial communities to human societies.\cite{axelrod1981evolution,rand2013human}
-However, cooperative behaviors require individuals to bear a cost, while the resulting collective benefits can be exploited by others.\cite{sigmund2010calculus}
-Understanding how cooperation can emerge and persist despite the advantage of selfish behaviors has therefore become a central topic in many disciplines.\cite{pennisi2005did}
+Cooperation is widely observed in biological and social systems, ranging from microbial communities to human societies~\cite{axelrod1981evolution,rand2013human}.
+However, cooperative behaviors require individuals to bear a cost, while the resulting collective benefits can be exploited by others~\cite{sigmund2010calculus}.
+Understanding how cooperation can emerge and persist despite the advantage of selfish behaviors has therefore become a central topic in many disciplines~\cite{pennisi2005did}.
 
-Evolutionary game theory provides a framework for investigating this problem.\cite{smith1973logic,taylor1978evolutionary,nowak2006evolutionary}
-Among various models, the public goods game (PGG) is widely used to describe social dilemmas in which individuals decide whether to contribute to a common pool.\cite{hauert2006evolutionary,szolnoki2016competition,zhu2024stochastic}
-Spatial PGGs further include population structure and local interactions, which allow cooperators to form clusters and resist exploitation.\cite{nowak1992evolutionary,ohtsuki2006simple,szabo2007evolutionary,szolnoki2009impact,perc2013evolutionary,perc2017statistical,zhu2025multilayer}
-On this basis, many mechanisms that support cooperation have been studied,\cite{perc2010coevolutionary} including punishment,\cite{fehr2002altruistic,helbing2010punish,chen2014probabilistic,szolnoki2017antisocial,xie2024regulation} reward,\cite{rand2009positive,szolnoki2010reward} reputation,\cite{milinski2002helps,zhu2024synergy} and environmental feedback.\cite{weitz2016oscillating,tilman2020evolutionary,wang2020eco,hu2025dynamic}
+Evolutionary game theory provides a framework for investigating this problem~\cite{smith1973logic,taylor1978evolutionary,nowak2006evolutionary}.
+Among various models, the public goods game (PGG) is widely used to describe social dilemmas in which individuals decide whether to contribute to a common pool~\cite{hauert2006evolutionary,szolnoki2016competition,zhu2024stochastic}.
+Spatial PGGs further include population structure and local interactions, which allow cooperators to form clusters and resist exploitation~\cite{nowak1992evolutionary,ohtsuki2006simple,szabo2007evolutionary,szolnoki2009impact,perc2013evolutionary,perc2017statistical,zhu2025multilayer}.
+On this basis, many mechanisms that support cooperation have been studied~\cite{perc2010coevolutionary}, including punishment~\cite{fehr2002altruistic,helbing2010punish,chen2014probabilistic,szolnoki2017antisocial,xie2024regulation}, reward~\cite{rand2009positive,szolnoki2010reward}, reputation~\cite{milinski2002helps,zhu2024synergy}, and environmental feedback~\cite{weitz2016oscillating,tilman2020evolutionary,wang2020eco,hu2025dynamic}.
 
-Peer pressure is another mechanism that influences cooperation and other collective behaviors.\cite{szolnoki2015conformity,xu2026synergistic}
-Individuals whose behavior differs from that of the people around them may face disapproval or exclusion, and they tend to adjust their behavior accordingly.\cite{asch1952social,cialdini1990focus}
+Peer pressure is another mechanism that influences cooperation and other collective behaviors~\cite{szolnoki2015conformity,xu2026synergistic}.
+Individuals whose behavior differs from that of the people around them may face disapproval or exclusion, and they tend to adjust their behavior accordingly~\cite{asch1952social,cialdini1990focus}.
 In evolutionary games, peer pressure has been modeled in two ways.
-In the first, each individual is penalized in proportion to the number of its neighbors that hold the opposite strategy, whether it cooperates or defects.\cite{yang2015peer,hu2021peer,gao2023impact,ma2025evolution}
-In the second, cooperation is regarded as the social norm, and only defectors are penalized, in proportion to the number of cooperators in their group.\cite{deng2018peer}
-Both rules can promote cooperation, and under the first rule a moderate pressure intensity is the most effective.\cite{yang2015peer,gao2023impact}
+In the first, each individual is penalized in proportion to the number of its neighbors that hold the opposite strategy, whether it cooperates or defects~\cite{yang2015peer,hu2021peer,gao2023impact,ma2025evolution}.
+In the second, cooperation is regarded as the social norm, and only defectors are penalized, in proportion to the number of cooperators in their group~\cite{deng2018peer}.
+Both rules can promote cooperation, and under the first rule a moderate pressure intensity is the most effective~\cite{yang2015peer,gao2023impact}.
 
 In both rules, the behavior that receives pressure is specified in advance and is the same in every group.
 In reality, however, what a group expects of its members is largely determined by what most of them do.
 In a team where most members work hard, a member who contributes little is criticized.
 In a team where most members contribute little, a member who works hard may instead be resented, because this effort raises what is expected of the others.
-Public goods experiments have indeed found that punishment is directed at high contributors as well as at free riders.\cite{herrmann2008antisocial}
+Public goods experiments have indeed found that punishment is directed at high contributors as well as at free riders~\cite{herrmann2008antisocial}.
 The prevailing behavior of a group thus acts as a local environment, which determines the behavior that receives pressure and is in turn changed by the actions of the group members.
 Neither rule describes this situation.
 Under the first rule, both behaviors are penalized in every mixed group, including the behavior of the majority.
 Under the second rule, cooperators are never penalized, even when almost all members of their group defect.
 
-In addition, strategies in these models spread by imitation,\cite{szabo2007evolutionary,traulsen2010human} and each individual uses one strategy in all its interactions.
+In addition, strategies in these models spread by imitation~\cite{szabo2007evolutionary,traulsen2010human}, and each individual uses one strategy in all its interactions.
 When the pressure depends on the group, however, an individual that belongs to several groups may be expected to behave differently in each of them.
-Reinforcement learning describes individuals who choose actions according to their current state and adjust these choices according to the rewards received.\cite{young2009learning,sutton2018reinforcement,xie2026reinforcement,zheng2026brief}
-In particular, Q-learning\cite{watkins1992qlearning} has been applied to PGGs and other social dilemmas,\cite{zheng2024evolution,shi2024model,wang2025spatial,mintz2025evolutionary,li2025cooperation} also in combination with punishment, reward, and reputation.\cite{zhao2024emergence,wang2023synergistic,ren2024interaction,shen2024adaptive,li2026reputation}
-In most of these studies, however, the state of an individual is its own previous action,\cite{wang2022levy,fan2022incorporating,du2026shaping} and the behavior of its group is not included.
-Recent studies have shown that information about the environment affects cooperation,\cite{kleshnina2023effect,lv2025reinforcement,li2025environmental} but it has not been combined with peer pressure that depends on this environment.
+Reinforcement learning describes individuals who choose actions according to their current state and adjust these choices according to the rewards received~\cite{young2009learning,sutton2018reinforcement,xie2026reinforcement,zheng2026brief}.
+In particular, Q-learning~\cite{watkins1992qlearning} has been applied to PGGs and other social dilemmas~\cite{zheng2024evolution,shi2024model,wang2025spatial,mintz2025evolutionary,li2025cooperation}, also in combination with punishment, reward, and reputation~\cite{zhao2024emergence,wang2023synergistic,ren2024interaction,shen2024adaptive,li2026reputation}.
+In most of these studies, however, the state of an individual is its own previous action~\cite{wang2022levy,fan2022incorporating,du2026shaping}, and the behavior of its group is not included.
+Recent studies have shown that information about the environment affects cooperation~\cite{kleshnina2023effect,lv2025reinforcement,li2025environmental}, but it has not been combined with peer pressure that depends on this environment.
 
 In this work, we propose an environment-dependent peer pressure mechanism in a spatial PGG with Q-learning.
 A group is a cooperative environment if its number of cooperators reaches a threshold, and a defective environment otherwise.
@@ -156,7 +158,7 @@ The environment of a group determines the payoff, peer pressure, and state of it
 
 \subsection{Q-learning with environmental information}\label{sec:qlearning}
 
-To describe how individuals adapt their behavior, we introduce Q-learning\cite{watkins1992qlearning,sutton2018reinforcement} into the spatial public goods game. Previous studies have often used the previous action of an individual to define its state.\cite{wang2022levy,fan2022incorporating,du2026shaping} However, including environmental information in the state allows individuals to distinguish group environments during learning.\cite{li2025environmental} In our model, the effective reward depends on both the action of an individual and the environment of the group. The state is therefore defined by the current action of the individual and the environment of the interaction group. Combining these two components gives four states, $s_1=(\mathrm{C},\mathrm{G})$, $s_2=(\mathrm{C},\mathrm{B})$, $s_3=(\mathrm{D},\mathrm{G})$, and $s_4=(\mathrm{D},\mathrm{B})$.
+To describe how individuals adapt their behavior, we introduce Q-learning~\cite{watkins1992qlearning,sutton2018reinforcement} into the spatial public goods game. Previous studies have often used the previous action of an individual to define its state~\cite{wang2022levy,fan2022incorporating,du2026shaping}. However, including environmental information in the state allows individuals to distinguish group environments during learning~\cite{li2025environmental}. In our model, the effective reward depends on both the action of an individual and the environment of the group. The state is therefore defined by the current action of the individual and the environment of the interaction group. Combining these two components gives four states, $s_1=(\mathrm{C},\mathrm{G})$, $s_2=(\mathrm{C},\mathrm{B})$, $s_3=(\mathrm{D},\mathrm{G})$, and $s_4=(\mathrm{D},\mathrm{B})$.
 
 For each individual, the Q-table records the expected discounted cumulative reward of each state-action pair and has the form
 \begin{equation}
@@ -180,7 +182,7 @@ where $\alpha$ is the learning rate and $\gamma$ is the discount factor. The new
 
 \subsection{Simulation procedure}\label{sec:simulation}
 
-Initially, each individual is assigned $\mathrm{C}$ or $\mathrm{D}$ with equal probability, and all Q-values are set to zero. We use a single group interaction as the elementary unit of learning, rather than accumulating payoffs over all overlapping groups.\cite{li2025environmental} In each elementary step, a focal individual is randomly selected, and the group centered on it plays the game once. All members of this group select their actions, receive their effective rewards, and update their Q-tables according to the environment of this group. One Monte Carlo step (MCS) consists of $L^2$ elementary steps, so that each individual participates in $g$ group interactions on average. The complete procedure is summarized in Algorithm~\ref{alg:PGG_Qlearning}.
+Initially, each individual is assigned $\mathrm{C}$ or $\mathrm{D}$ with equal probability, and all Q-values are set to zero. We use a single group interaction as the elementary unit of learning, rather than accumulating payoffs over all overlapping groups~\cite{li2025environmental}. In each elementary step, a focal individual is randomly selected, and the group centered on it plays the game once. All members of this group select their actions, receive their effective rewards, and update their Q-tables according to the environment of this group. One Monte Carlo step (MCS) consists of $L^2$ elementary steps, so that each individual participates in $g$ group interactions on average. The complete procedure is summarized in Algorithm~\ref{alg:PGG_Qlearning}.
 
 \begin{algorithm}[H]
 \caption{Spatial public goods game with peer pressure and Q-learning.}
@@ -211,7 +213,7 @@ Initially, each individual is assigned $\mathrm{C}$ or $\mathrm{D}$ with equal p
 \end{algorithmic}
 \end{algorithm}
 
-The cooperation level $\rho_{\mathrm{C}}$ is the fraction of cooperators in the population. Its stationary value is calculated by averaging over the last $10^5$ MCS of a simulation lasting $10^6$ MCS. For parameter sets that do not reach a stationary state within $10^6$ MCS, the simulation is extended to $10^8$ MCS, and the average is taken over the last $10^7$ MCS. Each data point is averaged over 20 independent runs. Unless stated otherwise, we use $L=100$, $T=3$, and the learning parameters $\alpha=0.1$, $\gamma=0.9$, and $\epsilon=0.01$.\cite{zhao2024emergence,zheng2024evolution,li2025environmental}
+The cooperation level $\rho_{\mathrm{C}}$ is the fraction of cooperators in the population. Its stationary value is calculated by averaging over the last $10^5$ MCS of a simulation lasting $10^6$ MCS. For parameter sets that do not reach a stationary state within $10^6$ MCS, the simulation is extended to $10^8$ MCS, and the average is taken over the last $10^7$ MCS. Each data point is averaged over 20 independent runs. Unless stated otherwise, we use $L=100$, $T=3$, and the learning parameters $\alpha=0.1$, $\gamma=0.9$, and $\epsilon=0.01$~\cite{zhao2024emergence,zheng2024evolution,li2025environmental}.
 
 
 \section{Results and discussion}\label{sec:results}
@@ -229,7 +231,7 @@ Weak pressure favors the emergence of cooperation at small synergy factors, wher
 
 We first investigate how peer pressure affects cooperation under different synergy factors. Figure~\ref{fig:Fig2}(a) shows the cooperation level $\rho_{\mathrm{C}}$ as a function of $r$ for different values of $\beta$. Without pressure, cooperation emerges at the lowest synergy factor and increases gradually with $r$. As $\beta$ increases, the onset of cooperation shifts toward higher $r$. When $r$ is small, a smaller $\beta$ therefore makes cooperation more likely to emerge. Once cooperation has emerged, however, a larger $\beta$ produces a higher cooperation level, and the order of the curves at large $r$ is the reverse of the order of their onsets. Weak pressure and strong pressure are thus each more favorable in a different range of $r$. In addition, the emergence of cooperation becomes sharper as $\beta$ increases. The cooperation level rises gradually from zero for $\beta=0$, whereas for larger $\beta$ it jumps from zero to a high value within a narrow range of $r$.
 
-Figure~\ref{fig:Fig2}(b) shows $\rho_{\mathrm{C}}$ as a function of $\beta$ for different values of $r$. For each $r$, the cooperation level first increases with $\beta$. As $\beta$ increases, the curves for different $r$ approach each other, which indicates that the cooperation level is mainly determined by $\beta$ as long as cooperation is maintained. For $r<4$, there is an optimal $\beta$ that maximizes cooperation. Beyond this value, cooperation collapses abruptly to zero, in a manner similar to a discontinuous phase transition.\cite{perc2017statistical} Both the optimal $\beta$ and the collapse shift toward larger $\beta$ as $r$ increases. For $r=4.0$, cooperation is maintained up to the largest $\beta$ examined.
+Figure~\ref{fig:Fig2}(b) shows $\rho_{\mathrm{C}}$ as a function of $\beta$ for different values of $r$. For each $r$, the cooperation level first increases with $\beta$. As $\beta$ increases, the curves for different $r$ approach each other, which indicates that the cooperation level is mainly determined by $\beta$ as long as cooperation is maintained. For $r<4$, there is an optimal $\beta$ that maximizes cooperation. Beyond this value, cooperation collapses abruptly to zero, in a manner similar to a discontinuous phase transition~\cite{perc2017statistical}. Both the optimal $\beta$ and the collapse shift toward larger $\beta$ as $r$ increases. For $r=4.0$, cooperation is maintained up to the largest $\beta$ examined.
 
 These observations can be understood from the difference between the effective rewards of cooperation and defection in a single interaction, which is derived in the Appendix. According to Eq.~\eqref{eq:delta}, peer pressure raises the reward of cooperation relative to defection in groups where most co-players cooperate, and lowers it in groups where most co-players defect. Pressure therefore strengthens the behavior of the local majority. When $r$ is small, the cost of cooperation is high and defectors more easily become the local majority, so that stronger pressure suppresses cooperation. When $r$ is large, cooperative groups are easier to maintain, and stronger pressure on the defectors in these groups raises the cooperation level. The same reasoning explains why a larger $r$ allows cooperation to persist under stronger pressure.
 
@@ -323,11 +325,11 @@ Figure~\ref{fig:Fig6}(b) compares the three state representations at $\beta=0.1$
 
 \section{Conclusion}\label{sec:conclusion}
 
-Peer pressure is an important form of social influence on cooperation.\cite{yang2015peer,deng2018peer,gao2023impact,ma2025evolution} In previous models, the pressure rule does not change with the local behavioral environment, and how such pressure interacts with individual learning\cite{xie2026reinforcement,zheng2026brief} has remained unclear. In this work, we have proposed an environment-dependent peer pressure mechanism in a spatial public goods game with Q-learning. Defectors receive pressure in groups with enough cooperators, and cooperators receive pressure in the other groups. The state of each individual includes both its own action and the environment of its current group, so that individuals can learn different actions for different environments.
+Peer pressure is an important form of social influence on cooperation~\cite{yang2015peer,deng2018peer,gao2023impact,ma2025evolution}. In previous models, the pressure rule does not change with the local behavioral environment, and how such pressure interacts with individual learning~\cite{xie2026reinforcement,zheng2026brief} has remained unclear. In this work, we have proposed an environment-dependent peer pressure mechanism in a spatial public goods game with Q-learning. Defectors receive pressure in groups with enough cooperators, and cooperators receive pressure in the other groups. The state of each individual includes both its own action and the environment of its current group, so that individuals can learn different actions for different environments.
 
 Our results reveal several findings. First, the effect of peer pressure depends on its intensity and on the synergy factor. Weak pressure allows cooperation to emerge at lower synergy factors, whereas strong pressure yields higher cooperation levels at higher synergy factors. For a given synergy factor, there is an optimal pressure intensity, beyond which cooperation collapses abruptly. Higher synergy factors allow cooperation to persist under stronger pressure. Second, the spatial patterns and the learning dynamics explain these results. Under moderate pressure, cooperative clusters survive the initial decline, and individuals learn to cooperate in cooperative environments. Under strong pressure, cooperative environments are lost at the early stage, which restricts the opportunities for learning a preference for cooperation. Third, the environmental threshold changes the response of cooperation to pressure. Intermediate thresholds favor cooperation under weak and moderate pressure, whereas lower thresholds are more favorable under strong pressure. Finally, the environment-dependent rule is not always better than the environment-independent rule, and the joint state representation supports cooperation over a wider range of synergy factors than the behavior-only or the environment-only representation.
 
-These findings show that the effect of peer pressure on cooperation is determined jointly by the pressure rule, the local environment, and the learning process of individuals. The present results are obtained on a square lattice with fixed learning parameters and random initial conditions. Future studies could consider more complex network structures,\cite{shi2024model,zhu2025multilayer} alternative state-transition rules,\cite{guo2022effect} and separate thresholds for the pressure rule and for the state definition.
+These findings show that the effect of peer pressure on cooperation is determined jointly by the pressure rule, the local environment, and the learning process of individuals. The present results are obtained on a square lattice with fixed learning parameters and random initial conditions. Future studies could consider more complex network structures~\cite{shi2024model,zhu2025multilayer}, alternative state-transition rules~\cite{guo2022effect}, and separate thresholds for the pressure rule and for the state definition.
 
 
 \begin{acknowledgments}
